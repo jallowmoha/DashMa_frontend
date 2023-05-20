@@ -1,22 +1,8 @@
-/*!
 
-=========================================================
-* Light Bootstrap Dashboard React - v2.0.1
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import ReactDOM from "react-dom/client";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
@@ -27,6 +13,10 @@ import "./assets/css/demo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import AdminLayout from "layouts/Admin.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Login from "views/Login"
+import SignUp from "views/SignUp"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -34,7 +24,10 @@ root.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/login" render={(props) => <Login />} />
+      <Route path="/signup" render={(props) => <SignUp />} />
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
+    <ToastContainer/>
   </BrowserRouter>
 );
